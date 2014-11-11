@@ -6,3 +6,8 @@ C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\twenty
 C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\obj\x86\Debug\twentyone.exe
 C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\obj\x86\Debug\twentyone.pdb
 C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\twentyone.exe.config
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\obj\x86\Debug\twentyone.csprojResolveAssemblyReference.cache
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\EntityFramework.dll
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\EntityFramework.xml
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\EntityFramework.SqlServer.xml

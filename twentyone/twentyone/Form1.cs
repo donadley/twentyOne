@@ -13,7 +13,7 @@ namespace twentyone
     public partial class Form1 : Form
     {
 
-        PlayerADOEntityModelContainer context = new PlayerADOEntityModelContainer();
+        PlayerContext context = new PlayerContext();
 
         public Form1()
         {
@@ -32,10 +32,13 @@ namespace twentyone
             newPlayer.Username = tbUsername.Text;
             newPlayer.Password = tbPassword.Text;
             //New player starts with $100 
-            newPlayer.Funds = "100";
+            newPlayer.Funds = 100;
 
-            context.AddToPlayers(newPlayer);
+            context.Players.Add(newPlayer);
             context.SaveChanges();
+
+
+            Player player = context.Players.FirstOrDefault();
 
             MessageBox.Show("Player created!");            
         }
