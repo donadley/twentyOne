@@ -37,9 +37,6 @@ namespace twentyone
             context.Players.Add(newPlayer);
             context.SaveChanges();
 
-
-            Player player = context.Players.FirstOrDefault();
-
             MessageBox.Show("Player created!");            
         }
 
@@ -65,7 +62,12 @@ namespace twentyone
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            Player player = context.Players.Where(p => p.Username.Equals(tbUsername.Text) && p.Password.Equals(tbPassword.Text)).FirstOrDefault();
+            if (player != null)
+            {
+                //sign the player in
+                MessageBox.Show("Player found!");    
+            }
         }
 
         private void btnExistingUser_Click(object sender, EventArgs e)
