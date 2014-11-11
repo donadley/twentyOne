@@ -1,0 +1,8 @@
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\obj\x86\Debug\twentyone.Form1.resources
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\obj\x86\Debug\twentyone.Properties.Resources.resources
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\obj\x86\Debug\twentyone.csproj.GenerateResource.Cache
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\twentyone.exe
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\twentyone.pdb
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\obj\x86\Debug\twentyone.exe
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\obj\x86\Debug\twentyone.pdb
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\twentyone.exe.config
