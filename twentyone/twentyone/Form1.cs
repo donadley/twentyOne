@@ -66,7 +66,16 @@ namespace twentyone
             if (player != null)
             {
                 //sign the player in
-                MessageBox.Show("Player found!");    
+                MessageBox.Show("Player found!");
+                Form1.ActiveForm.Hide();
+                Form2 form2 = new Form2();
+                form2.Activate();
+
+                form2.Show();
+            }
+            else
+            {
+                MessageBox.Show("User does not exist!");  
             }
         }
 

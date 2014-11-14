@@ -11,3 +11,4 @@ C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\Entity
 C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\EntityFramework.xml
 C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\obj\x86\Debug\twentyone.Form2.resources

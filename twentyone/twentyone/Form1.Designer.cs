@@ -31,13 +31,13 @@
             this.btnNewUser = new System.Windows.Forms.Button();
             this.btnExistingUser = new System.Windows.Forms.Button();
             this.panelUserLogin = new System.Windows.Forms.Panel();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnCreateUser = new System.Windows.Forms.Button();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbUsername = new System.Windows.Forms.TextBox();
             this.lblPassword = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.panelUserLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -76,6 +76,16 @@
             this.panelUserLogin.TabIndex = 2;
             this.panelUserLogin.Visible = false;
             this.panelUserLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUserLogin_Paint);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(152, 293);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(186, 23);
+            this.btnCancel.TabIndex = 7;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnLogin
             // 
@@ -133,16 +143,6 @@
             this.lblUsername.Text = "Username:";
             this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(152, 293);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(186, 23);
-            this.btnCancel.TabIndex = 7;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -152,7 +152,7 @@
             this.Controls.Add(this.btnNewUser);
             this.Controls.Add(this.btnExistingUser);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Start Screen";
             this.panelUserLogin.ResumeLayout(false);
             this.panelUserLogin.PerformLayout();
             this.ResumeLayout(false);
