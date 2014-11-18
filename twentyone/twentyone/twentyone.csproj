@@ -88,7 +88,6 @@
     <Compile Include="Hand.cs" />
     <Compile Include="Pack.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="PlayerContext.cs" />
     <Compile Include="PlayingCard.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -163,6 +162,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\blackjackpntn_screenshot_unbranded.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BlackJackDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="BlackJackDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>BlackJackDB.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

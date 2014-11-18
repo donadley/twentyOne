@@ -6,14 +6,13 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using twentyone;
+using System.Data.Entity;
+ 
 
 namespace twentyone
 {
     public partial class Form1 : Form
     {
-
-        PlayerContext context = new PlayerContext();
 
         public Form1()
         {
@@ -34,9 +33,9 @@ namespace twentyone
             //New player starts with $100 
             newPlayer.Funds = 100;
 
-            context.Players.Add(newPlayer);
-            context.SaveChanges();
+            
 
+        
             MessageBox.Show("Player created!");            
         }
 
@@ -62,21 +61,20 @@ namespace twentyone
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            Player player = context.Players.Where(p => p.Username.Equals(tbUsername.Text) && p.Password.Equals(tbPassword.Text)).FirstOrDefault();
-            if (player != null)
-            {
-                //sign the player in
-                MessageBox.Show("Player found!");
-                Form1.ActiveForm.Hide();
-                Form2 form2 = new Form2();
-                form2.Activate();
+            //if (player != null)
+            //{
+            //    //sign the player in
+            //    MessageBox.Show("Player found!");
+            //    Form1.ActiveForm.Hide();
+            //    Form2 form2 = new Form2();
+            //    form2.Activate();
 
-                form2.Show();
-            }
-            else
-            {
-                MessageBox.Show("User does not exist!");  
-            }
+            //    form2.Show();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("User does not exist!");  
+            //}
         }
 
         private void btnExistingUser_Click(object sender, EventArgs e)
