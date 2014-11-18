@@ -7,34 +7,61 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.Entity;
+using System.Data.SqlClient;
  
 
 namespace twentyone
 {
     public partial class Form1 : Form
     {
+        SqlConnection objConn;
+        SqlDataAdapter daPlayerAdapter;
+        DataSet dsPlayerDataSet;
 
         public Form1()
         {
             InitializeComponent();
+
+            string sConnectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\BlackJackDB.mdf;Integrated Security=True";
+
+            objConn = new SqlConnection(sConnectionString);
+
+
+            daPlayerAdapter = new SqlDataAdapter("Select * From BlackJackPlayerTB", objConn);
+
+            dsPlayerDataSet = new DataSet();
+
+
+            daPlayerAdapter.FillSchema(dsPlayerDataSet, SchemaType.Source, "BlackJackPlayerTB");
+            daPlayerAdapter.Fill(dsPlayerDataSet, "BlackJackPlayerTB");
         }
 
         public void Form1_Load(object sender, EventArgs e)
         {
-           
+            
+
 
         }
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            Player newPlayer = new Player();
-            newPlayer.Username = tbUsername.Text;
-            newPlayer.Password = tbPassword.Text;
-            //New player starts with $100 
-            newPlayer.Funds = 100;
+            DataRow newPlayer = dsPlayerDataSet.Tables["BlackJackPlayerTB"].NewRow();
+          
+            newPlayer["Username"] = tbUsername.Text;
+            newPlayer["Password"] = tbPassword.Text;
+             //New player starts with $100
+            newPlayer["Funds"] = 100;               
 
-            
+            dsPlayerDataSet.Tables["BlackJackPlayerTB"].Rows.Add(newPlayer);
 
+            SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(daPlayerAdapter);
+
+            daPlayerAdapter.UpdateCommand = cmdBuilder.GetUpdateCommand();
+            daPlayerAdapter.InsertCommand = cmdBuilder.GetInsertCommand();
+
+            daPlayerAdapter.Update(dsPlayerDataSet, "BlackJackPlayerTB");
+
+            objConn.Close();         
         
             MessageBox.Show("Player created!");            
         }
