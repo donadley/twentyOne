@@ -1,6 +1,8 @@
-namespace Cards
+using System.Drawing;
+
+namespace twentyone
 {
-	class PlayingCard
+	public class PlayingCard
 	{
         private readonly Suit suit;
         private readonly Value value;
@@ -25,6 +27,11 @@ namespace Cards
         public Value CardValue()
         {
             return this.value;
+        }
+
+        public Image getCardImage()
+        {
+            return Image.FromFile(value.ToString()+suit.ToString()+".png");
         }
 	}
 }

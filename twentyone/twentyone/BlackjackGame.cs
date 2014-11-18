@@ -5,7 +5,7 @@ using System.Text;
 
 namespace twentyone
 {
-    class BlackjackGame
+    public class BlackjackGame
     {
 
     }

@@ -1,9 +1,9 @@
-namespace Cards
+namespace twentyone
 {
 	using System;
 	using System.Collections;
 
-	class Pack
+	public class Pack
 	{
         public const int NumSuits = 4;
         public const int CardsPerSuit = 13;

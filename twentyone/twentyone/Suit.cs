@@ -1,5 +1,5 @@
 
-namespace Cards
+namespace twentyone
 {
-    enum Suit { Clubs, Diamonds, Hearts, Spades }
+    public enum Suit { Clubs, Diamonds, Hearts, Spades }
 }

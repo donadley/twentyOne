@@ -1,9 +1,9 @@
-namespace Cards
+namespace twentyone
 {
 	using System;
 	using System.Collections;
 
-	class Hand
+	public class Hand
 	{
         public const int HandSize = 13;
         private PlayingCard[] cards = new PlayingCard[HandSize];
@@ -29,5 +29,16 @@ namespace Cards
 
 			return result;
 		}
+
+        //gets a card from hand a position i
+        public PlayingCard getCard(int i)
+        {
+            return cards[i];
+        }
+
+        public int getCount()
+        {
+            return playingCardCount;
+        }
 	}
 }

@@ -45,14 +45,14 @@ namespace twentyone
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            DataRow newPlayer = dsPlayerDataSet.Tables["BlackJackPlayerTB"].NewRow();
+            DataRow newPlayerRow = dsPlayerDataSet.Tables["BlackJackPlayerTB"].NewRow();
           
-            newPlayer["Username"] = tbUsername.Text;
-            newPlayer["Password"] = tbPassword.Text;
+            newPlayerRow["Username"] = tbUsername.Text;
+            newPlayerRow["Password"] = tbPassword.Text;
              //New player starts with $100
-            newPlayer["Funds"] = 100;               
+            newPlayerRow["Funds"] = 100;               
 
-            dsPlayerDataSet.Tables["BlackJackPlayerTB"].Rows.Add(newPlayer);
+            dsPlayerDataSet.Tables["BlackJackPlayerTB"].Rows.Add(newPlayerRow);
 
             SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(daPlayerAdapter);
 
@@ -88,6 +88,31 @@ namespace twentyone
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            //DataRow newPlayerRow = dsPlayerDataSet.Tables["BlackJackPlayerTB"].NewRow();
+
+            //DataSet dsPlayerDataSet = new DataSet();
+            //dsPlayerDataSet.Locale = CultureInfo.InvariantCulture;
+            //FillDataSet(ds);
+
+            //DataTable players = dsPlayerDataSet.Tables["BlackJackPlayerTB"];
+
+            //var query =
+            //    from order in players.AsEnumerable()
+            //    where order.Field<bool>("OnlineOrderFlag") == true
+            //    select new
+            //    {
+            //        SalesOrderID = order.Field<int>("SalesOrderID"),
+            //        OrderDate = order.Field<DateTime>("OrderDate"),
+            //        SalesOrderNumber = order.Field<string>("SalesOrderNumber")
+            //    };
+
+            //foreach (var onlineOrder in query)
+            //{
+            //    Console.WriteLine("Order ID: {0} Order date: {1:d} Order number: {2}",
+            //        onlineOrder.SalesOrderID,
+            //        onlineOrder.OrderDate,
+            //        onlineOrder.SalesOrderNumber);
+            //}
             //if (player != null)
             //{
             //    //sign the player in

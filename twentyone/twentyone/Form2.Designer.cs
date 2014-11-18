@@ -31,10 +31,10 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.firstCardPanel = new System.Windows.Forms.Panel();
             this.dealButton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.firstCardPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -59,15 +59,17 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(97, 113);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // panel3
+            // firstCardPanel
             // 
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.panel2);
-            this.panel3.Location = new System.Drawing.Point(473, 464);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(97, 113);
-            this.panel3.TabIndex = 1;
+            this.firstCardPanel.BackColor = System.Drawing.Color.Transparent;
+            this.firstCardPanel.Controls.Add(this.panel2);
+            this.firstCardPanel.Location = new System.Drawing.Point(473, 464);
+            this.firstCardPanel.Name = "firstCardPanel";
+            this.firstCardPanel.Size = new System.Drawing.Size(97, 113);
+            this.firstCardPanel.TabIndex = 1;
+            this.firstCardPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // dealButton
             // 
@@ -86,12 +88,12 @@
             this.BackgroundImage = global::twentyone.Properties.Resources.blackjackpntn_screenshot_unbranded;
             this.ClientSize = new System.Drawing.Size(1021, 762);
             this.Controls.Add(this.dealButton);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.firstCardPanel);
             this.Controls.Add(this.panel1);
             this.Name = "Form2";
             this.Text = "Blackjack";
             this.panel1.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
+            this.firstCardPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -101,7 +103,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel firstCardPanel;
         private System.Windows.Forms.Button dealButton;
     }
 }
