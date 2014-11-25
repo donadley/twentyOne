@@ -1,4 +1,6 @@
 using System.Drawing;
+using System.Resources;
+using System.Reflection;
 
 namespace twentyone
 {
@@ -6,11 +8,14 @@ namespace twentyone
 	{
         private readonly Suit suit;
         private readonly Value value;
+        private Image cardImage;
 
 		public PlayingCard(Suit s, Value v)
 		{
+            ResourceManager rm = new ResourceManager("twentyone.Properties.Resources", typeof(twentyone.Properties.Resources).Assembly);
 			this.suit = s;
-			this.value = v;
+			this.value = v;            
+            cardImage = rm.GetObject("3C.png") as Image;
 		}
 
         public override string ToString()
@@ -31,7 +36,7 @@ namespace twentyone
 
         public Image getCardImage()
         {
-            return Image.FromFile(value.ToString()+suit.ToString()+".png");
+            return cardImage;
         }
 	}
 }

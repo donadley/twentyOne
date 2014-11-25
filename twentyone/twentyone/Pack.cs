@@ -14,7 +14,7 @@ namespace twentyone
 		{
             this.cardPack = new PlayingCard[NumSuits, CardsPerSuit];
 
-            for (Suit suit = Suit.Clubs; suit <= Suit.Spades; suit++)
+            for (Suit suit = Suit.C; suit <= Suit.S; suit++)
             {
                 for (Value value = Value.Two; value <= Value.Ace; value++)
                 {

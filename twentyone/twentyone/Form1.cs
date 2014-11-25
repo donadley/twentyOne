@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.Entity;
-using System.Data.SqlClient;
+using System.Data.SqlClient; 
  
 
 namespace twentyone
@@ -22,7 +22,7 @@ namespace twentyone
         {
             InitializeComponent();
 
-            string sConnectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename=C:\Users\Mercury\Documents\GitHub\twentyOne\twentyone\twentyone\BlackJackDB.mdf;Integrated Security=True";
+            string sConnectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename="+Application.StartupPath+"\\BlackJackDB.mdf;Integrated Security=True";
 
             objConn = new SqlConnection(sConnectionString);
 
@@ -34,6 +34,7 @@ namespace twentyone
 
             daPlayerAdapter.FillSchema(dsPlayerDataSet, SchemaType.Source, "BlackJackPlayerTB");
             daPlayerAdapter.Fill(dsPlayerDataSet, "BlackJackPlayerTB");
+
         }
 
         public void Form1_Load(object sender, EventArgs e)
@@ -46,11 +47,11 @@ namespace twentyone
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
             DataRow newPlayerRow = dsPlayerDataSet.Tables["BlackJackPlayerTB"].NewRow();
-          
+
             newPlayerRow["Username"] = tbUsername.Text;
             newPlayerRow["Password"] = tbPassword.Text;
-             //New player starts with $100
-            newPlayerRow["Funds"] = 100;               
+            //New player starts with $100
+            newPlayerRow["Funds"] = 100;
 
             dsPlayerDataSet.Tables["BlackJackPlayerTB"].Rows.Add(newPlayerRow);
 
@@ -61,8 +62,8 @@ namespace twentyone
 
             daPlayerAdapter.Update(dsPlayerDataSet, "BlackJackPlayerTB");
 
-            objConn.Close();         
-        
+            objConn.Close();
+
             MessageBox.Show("Player created!");            
         }
 
@@ -127,6 +128,8 @@ namespace twentyone
             //{
             //    MessageBox.Show("User does not exist!");  
             //}
+
+
         }
 
         private void btnExistingUser_Click(object sender, EventArgs e)
