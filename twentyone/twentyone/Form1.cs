@@ -7,33 +7,32 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Data.Entity;
-using System.Data.SqlClient; 
+using System.Data.SqlClient;
  
 
 namespace twentyone
 {
     public partial class Form1 : Form
-    {
-        SqlConnection objConn;
+    {         
+        SqlConnection objConn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename="+Application.StartupPath+"\\BlackJackDB.mdf;Integrated Security=True");
         SqlDataAdapter daPlayerAdapter;
         DataSet dsPlayerDataSet;
+        SqlCommand cmd;
 
         public Form1()
         {
             InitializeComponent();
 
-            string sConnectionString = @"Data Source=(LocalDB)\v11.0;AttachDbFilename="+Application.StartupPath+"\\BlackJackDB.mdf;Integrated Security=True";
-
-            objConn = new SqlConnection(sConnectionString);
+            
 
 
-            daPlayerAdapter = new SqlDataAdapter("Select * From BlackJackPlayerTB", objConn);
+            //daPlayerAdapter = new SqlDataAdapter("Select * From BlackJackPlayerTB", objConn);
 
-            dsPlayerDataSet = new DataSet();
+            //dsPlayerDataSet = new DataSet();
 
 
-            daPlayerAdapter.FillSchema(dsPlayerDataSet, SchemaType.Source, "BlackJackPlayerTB");
-            daPlayerAdapter.Fill(dsPlayerDataSet, "BlackJackPlayerTB");
+            //daPlayerAdapter.FillSchema(dsPlayerDataSet, SchemaType.Source, "BlackJackPlayerTB");
+            //daPlayerAdapter.Fill(dsPlayerDataSet, "BlackJackPlayerTB");
 
         }
 
@@ -46,25 +45,30 @@ namespace twentyone
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            DataRow newPlayerRow = dsPlayerDataSet.Tables["BlackJackPlayerTB"].NewRow();
+            cmd = new SqlCommand();
+            cmd.Connection = objConn;
+            objConn.Open();
 
-            newPlayerRow["Username"] = tbUsername.Text;
-            newPlayerRow["Password"] = tbPassword.Text;
-            //New player starts with $100
-            newPlayerRow["Funds"] = 100;
+            cmd.CommandText = "INSERT INTO BlackJackPlayerTB (Username, Password, Funds) VALUES (@Username, @Password, 1000)";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = objConn;
+            cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
+            cmd.Parameters.AddWithValue("@Password", tbPassword.Text);
+            
+           
 
-            dsPlayerDataSet.Tables["BlackJackPlayerTB"].Rows.Add(newPlayerRow);
-
-            SqlCommandBuilder cmdBuilder = new SqlCommandBuilder(daPlayerAdapter);
-
-            daPlayerAdapter.UpdateCommand = cmdBuilder.GetUpdateCommand();
-            daPlayerAdapter.InsertCommand = cmdBuilder.GetInsertCommand();
-
-            daPlayerAdapter.Update(dsPlayerDataSet, "BlackJackPlayerTB");
-
+            cmd.ExecuteNonQuery();
+            cmd.Clone();
+            cmd.Parameters.Clear();
             objConn.Close();
 
-            MessageBox.Show("Player created!");            
+
+            MessageBox.Show("Player created!");
+            Form1.ActiveForm.Hide();
+            Blackjack blackjack = new Blackjack();
+            blackjack.Activate();
+
+            blackjack.Show();
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
@@ -89,45 +93,40 @@ namespace twentyone
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            //DataRow newPlayerRow = dsPlayerDataSet.Tables["BlackJackPlayerTB"].NewRow();
 
-            //DataSet dsPlayerDataSet = new DataSet();
-            //dsPlayerDataSet.Locale = CultureInfo.InvariantCulture;
-            //FillDataSet(ds);
+            cmd = new SqlCommand();
+            cmd.Connection = objConn;
+            objConn.Open();
 
-            //DataTable players = dsPlayerDataSet.Tables["BlackJackPlayerTB"];
+            cmd.CommandText = "SELECT Username FROM BlackJackPlayerTB WHERE Username = @Username AND Password = @Password";
+            cmd.CommandType = CommandType.Text;
+            cmd.Connection = objConn;
+            cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
+            cmd.Parameters.AddWithValue("@Password", tbPassword.Text);
 
-            //var query =
-            //    from order in players.AsEnumerable()
-            //    where order.Field<bool>("OnlineOrderFlag") == true
-            //    select new
-            //    {
-            //        SalesOrderID = order.Field<int>("SalesOrderID"),
-            //        OrderDate = order.Field<DateTime>("OrderDate"),
-            //        SalesOrderNumber = order.Field<string>("SalesOrderNumber")
-            //    };
+            cmd.ExecuteNonQuery();
 
-            //foreach (var onlineOrder in query)
-            //{
-            //    Console.WriteLine("Order ID: {0} Order date: {1:d} Order number: {2}",
-            //        onlineOrder.SalesOrderID,
-            //        onlineOrder.OrderDate,
-            //        onlineOrder.SalesOrderNumber);
-            //}
-            //if (player != null)
-            //{
-            //    //sign the player in
-            //    MessageBox.Show("Player found!");
-            //    Form1.ActiveForm.Hide();
-            //    Form2 form2 = new Form2();
-            //    form2.Activate();
+            SqlDataReader reader = cmd.ExecuteReader();
 
-            //    form2.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("User does not exist!");  
-            //}
+            if (reader.HasRows)
+            {
+                //sign the player in
+                MessageBox.Show("Player found!");
+                Form1.ActiveForm.Hide();
+                Blackjack blackjack = new Blackjack();
+                blackjack.Activate();
+
+                blackjack.Show();
+            }
+            else
+            {
+                MessageBox.Show("User does not exist!");  
+            }
+
+            cmd.Clone();
+            cmd.Parameters.Clear();
+            objConn.Close();
+
 
 
         }
@@ -139,6 +138,10 @@ namespace twentyone
             btnCreateUser.Visible = false;
             btnExistingUser.Visible = false;
             btnCreateUser.Visible = false;
+
+            //Clear text boxes
+            tbUsername.Text = "";
+            tbPassword.Text = "";
         }
 
         private void panelUserLogin_Paint(object sender, PaintEventArgs e)
@@ -153,6 +156,10 @@ namespace twentyone
             btnCreateUser.Visible = true;
             btnExistingUser.Visible = false;
             btnCreateUser.Visible = true;
+
+            //Clear text boxes
+            tbUsername.Text = "";
+            tbPassword.Text = "";
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

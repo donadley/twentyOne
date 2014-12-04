@@ -2,45 +2,27 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Collections;
+using System.Windows.Forms;
 
 namespace twentyone
 {
-    public class Player
+    class Player
     {
-        private int PlayerID;
-        private string Username;
-        private string Password;
-        private int Funds;
-        private Hand Hand;
+        public Player()
+        {
 
-        public Player(int playerID, string username, string password, int funds)
-        {
-            PlayerID = playerID;
-            Username = username;
-            Password = password;
-            Funds = funds;
-            Hand = new Hand();
         }
+        public void Stand()
+        {
 
-        public string getUsername()
-        {
-            return Username;
         }
-        public string getPassword()
+        public void Hit()
         {
-            return Password;
-        }
-        public int getFunds()
-        {
-            return Funds;
-        }
 
-        public Hand getHand()
-        {
-            return Hand;
         }
+        public void Split()
+        { 
 
+        }
     }
-    
 }

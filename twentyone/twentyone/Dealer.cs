@@ -2,39 +2,32 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace twentyone
 {
     class Dealer
     {
-        
-        private string Username;
-        private int Funds;
-        private Hand hand;
-        private Pack pack;
+        Pack pack = new Pack();
 
-       
-         public Dealer(string username)
+        public void Stand()
         {
-            Username = username;
-            Funds = 100000000;
-            hand = new Hand();
-            pack = new Pack();
+
         }
+        public void Hit()
+        {
 
-         public int getFunds()
-         {
-             return Funds;
-         }
-
-         public Hand getHand()
-         {
-             return hand;
-         }
-
-         public PlayingCard deal()
-         {
-             return pack.DealCardFromPack();
-         }
+        }
+        public PlayingCard DealCard()
+        {
+            
+            return pack.DealCardFromPack();
+            
+        }
+        public void Shuffle()
+        {
+            Pack pack = new Pack();
+        }      
     }
 }

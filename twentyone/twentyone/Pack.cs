@@ -2,6 +2,8 @@ namespace twentyone
 {
 	using System;
 	using System.Collections;
+    using System.Drawing;
+    using System.Windows.Forms;
 
 	public class Pack
 	{
@@ -14,7 +16,7 @@ namespace twentyone
 		{
             this.cardPack = new PlayingCard[NumSuits, CardsPerSuit];
 
-            for (Suit suit = Suit.C; suit <= Suit.S; suit++)
+            for (Suit suit = Suit.Club; suit <= Suit.Spade; suit++)
             {
                 for (Value value = Value.Two; value <= Value.Ace; value++)
                 {
@@ -39,6 +41,7 @@ namespace twentyone
 
             PlayingCard card = this.cardPack[(int)suit, (int)value];
             this.cardPack[(int)suit, (int)value] = null;
+
             return card;
         }
 

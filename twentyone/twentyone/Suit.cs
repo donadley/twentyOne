@@ -1,5 +1,5 @@
 
 namespace twentyone
 {
-    public enum Suit { C, D, H, S }
+   public enum Suit { Club, Diamond, Heart, Spade }
 }
