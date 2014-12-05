@@ -14,7 +14,7 @@ namespace twentyone
 {
     public partial class Form1 : Form
     {
-        SqlConnection objConn = new SqlConnection(@"Data Source=TC220-INST;Initial Catalog=BlackJackDB;Integrated Security=True");
+        SqlConnection objConn = new SqlConnection(@"Data Source=CSCPROJECTS.lsus.local;Initial Catalog=BlackJack;Integrated Security=True");
         SqlDataAdapter daPlayerAdapter;
         DataSet dsPlayerDataSet;
         SqlCommand cmd;
