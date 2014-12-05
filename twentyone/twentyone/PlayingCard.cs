@@ -33,9 +33,9 @@ namespace twentyone
             return this.value;
         }
 
-        public Image getCardImage(PlayingCard card)
+        public Image getCardImage()
         {
-            Image cardImage = Image.FromFile(Application.StartupPath + "\\Cards\\" + string.Format("{0}{1}", card.CardValue(), card.CardSuit() + ".png"));
+            Image cardImage = Image.FromFile(Application.StartupPath + "\\Cards\\" + string.Format("{0}{1}", this.CardValue(), this.CardSuit() + ".png"));
             return cardImage;
         }
         public int getIntValue(Value value)

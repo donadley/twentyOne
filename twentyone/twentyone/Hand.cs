@@ -3,10 +3,10 @@ namespace twentyone
 	using System;
 	using System.Collections;
 
-	class Hand
+	public class Hand
 	{
-        public const int HandSize = 2;
-        private PlayingCard[] cards = new PlayingCard[HandSize];
+        public const int HandSize = 5;
+        public PlayingCard[] cards = new PlayingCard[HandSize];
         private int playingCardCount = 0;
 
 		public void AddCardToHand(PlayingCard cardDealt)
@@ -29,5 +29,6 @@ namespace twentyone
 
 			return result;
 		}
+
 	}
 }

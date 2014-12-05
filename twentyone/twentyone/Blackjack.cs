@@ -10,53 +10,35 @@ using System.IO;
 
 namespace twentyone
 {
+     
     public partial class Blackjack : Form
     {
-        double winnings = 0;
-        double playerBet = 0;
-        
-
+        Dealer dealer;
+        Player player1;
+        public int hitCount = 0;
         public Blackjack()
         {
             InitializeComponent();
+
+            //Making a game with a dealer and player
+            dealer = new Dealer();
+            player1 = new Player();
         }
 
         public void btnDeal_Click(object sender, EventArgs e)
         {
-            Dealer dealer1 = new Dealer();
-            Player player1 = new Player();
-            
-            Blackjack game = new Blackjack();
-            
-           
-            
+            player1.Hit(dealer.DealCard());            
+            player1.Hit(dealer.DealCard());
 
-            PlayingCard[] playerHand = new PlayingCard[2];
-            PlayingCard[] dealerHand = new PlayingCard[2];
-            
+            dealer.Hit(dealer.DealCard());
+            dealer.Hit(dealer.DealCard());
 
-            playerHand[0] = dealer1.DealCard();
-            playerHand[1] = dealer1.DealCard();
-            dealerHand[0] = dealer1.DealCard();
-            dealerHand[1] = dealer1.DealCard();
+            pnlplayerHand0.BackgroundImage = player1.hand.cards[0].getCardImage();
+            pnlplayerHand1.BackgroundImage = player1.hand.cards[1].getCardImage();
+            pnlDC0.BackgroundImage = dealer.hand.cards[1].getCardImage();
+            pnlDC1.BackgroundImage = dealer.hand.cards[1].getCardImage();
 
-            pnlplayerHand0.BackgroundImage = playerHand[0].getCardImage(playerHand[0]);
-            pnlplayerHand1.BackgroundImage = playerHand[1].getCardImage(playerHand[1]);
-            pnlDC0.BackgroundImage = dealerHand[0].getCardImage(dealerHand[0]);
-            pnlDC1.BackgroundImage = dealerHand[1].getCardImage(dealerHand[1]);
-
-            lblPlayerScore.Text = game.getScore(playerHand).ToString();
-            lblDealerScore.Text = game.getScore(dealerHand).ToString();
-
-            if (game.getScore(playerHand) < game.getScore(dealerHand))
-            {
-                lblWinner.Text = "Dealer Wins!";
-            }
-            if (game.getScore(playerHand) > game.getScore(dealerHand))
-            {
-                lblWinner.Text = "Player Wins!";
-            }
-            game.isWinner();
+            btnDeal.Visible = false;
         }
 
         public int getScore(PlayingCard[] hand)
@@ -71,12 +53,25 @@ namespace twentyone
             return score;
         }
 
+        public bool checkBlackJack(int score,double playerBet)
+        {
+            if (score == 21)
+            {
+                lblWinner.Text="Player BlackJack!";
+                //winnings += playerBet * 1.5;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public bool checkBlackJack(int score)
         {
             if (score == 21)
             {
-                MessageBox.Show("BlackJack!");
-                winnings += playerBet * 1.5;
+                lblWinner.Text=("Dealer BlackJack!");
+                
                 return true;
             }
             else
@@ -85,20 +80,41 @@ namespace twentyone
             }
         }
 
-        public void isWinner()
+        public string isWinner(int playerHand, int dealerHand)
         {
-            string score2 = "010";
-
-            lblDealer.Text = score2;
-           
-            
-
+            if (playerHand < dealerHand)
+            {
+                return "Dealer Wins!";
+            }
+            else if (playerHand > dealerHand)
+            {
+                return "Player Wins!";
+            }
+            else
+            {
+                return "Push!";
+            }
         }
 
-        //Bet Selector
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        public void btnHit_Click(object sender, EventArgs e)
         {
-
+            if (hitCount == 0)
+            {
+                player1.Hit(dealer.DealCard());
+                pnlPC2.BackgroundImage = player1.hand.cards[2].getCardImage();
+            }
+            if (hitCount == 1)
+            {
+                player1.Hit(dealer.DealCard());
+                panel3.BackgroundImage = player1.hand.cards[3].getCardImage();
+            }
+            if (hitCount == 2)
+            {
+                player1.Hit(dealer.DealCard());
+                panel5.BackgroundImage = player1.hand.cards[4].getCardImage();
+            }
+            hitCount++;                
         }
+         
     }
 }

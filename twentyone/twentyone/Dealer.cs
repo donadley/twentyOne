@@ -7,27 +7,26 @@ using System.Drawing;
 
 namespace twentyone
 {
-    class Dealer
+    public class Dealer
     {
-        Pack pack = new Pack();
+        public Pack pack = new Pack();
+        public Hand hand = new Hand();
 
         public void Stand()
         {
 
         }
-        public void Hit()
+        public void Hit(PlayingCard card)
         {
-
+            hand.AddCardToHand(card);
         }
         public PlayingCard DealCard()
-        {
-            
-            return pack.DealCardFromPack();
-            
+        {            
+            return pack.DealCardFromPack();            
         }
         public void Shuffle()
         {
-            Pack pack = new Pack();
+            pack = new Pack();
         }      
     }
 }

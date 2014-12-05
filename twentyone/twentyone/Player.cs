@@ -6,19 +6,22 @@ using System.Windows.Forms;
 
 namespace twentyone
 {
-    class Player
+    public class Player
     {
+        public Hand hand = new Hand();
+
         public Player()
         {
-
+            
+            
         }
         public void Stand()
         {
 
         }
-        public void Hit()
+        public void Hit(PlayingCard card)
         {
-
+            hand.AddCardToHand(card);  
         }
         public void Split()
         { 

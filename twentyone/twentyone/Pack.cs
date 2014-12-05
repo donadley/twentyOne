@@ -9,6 +9,7 @@ namespace twentyone
 	{
         public const int NumSuits = 4;
         public const int CardsPerSuit = 13;
+        public int cardsPerPack = 52;
         private PlayingCard[,] cardPack;
         private Random randomCardSelector = new Random();
 
@@ -41,7 +42,7 @@ namespace twentyone
 
             PlayingCard card = this.cardPack[(int)suit, (int)value];
             this.cardPack[(int)suit, (int)value] = null;
-
+            cardsPerPack--;
             return card;
         }
 
