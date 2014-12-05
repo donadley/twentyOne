@@ -13,8 +13,8 @@ using System.Data.SqlClient;
 namespace twentyone
 {
     public partial class Form1 : Form
-    {         
-        SqlConnection objConn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename="+Application.StartupPath+"\\BlackJackDB.mdf;Integrated Security=True");
+    {
+        SqlConnection objConn = new SqlConnection(@"Data Source=TC220-INST;Initial Catalog=BlackJackDB;Integrated Security=True");
         SqlDataAdapter daPlayerAdapter;
         DataSet dsPlayerDataSet;
         SqlCommand cmd;
