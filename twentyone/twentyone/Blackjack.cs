@@ -14,21 +14,21 @@ namespace twentyone
     public partial class Blackjack : Form
     {
         Dealer dealer;
-        Player player1;
+        public Player player1;
         public int hitCount;
-        public Blackjack()
+
+        public Blackjack(Player player1)
         {
             InitializeComponent();
 
             //Making a game with a dealer and player
             dealer = new Dealer();
-            player1 = new Player();
+            this.player1 = player1;
             hitCount = 0;
         }
 
         public void btnDeal_Click(object sender, EventArgs e)
         {
-            Blackjack game = new Blackjack();
 
             player1.hand.AddCardToHand(dealer.DealCard());
             player1.hand.AddCardToHand(dealer.DealCard());
@@ -135,6 +135,14 @@ namespace twentyone
             lblWinner.Text = isWinner(player1, dealer);
 
             btnDeal.Visible = true;
+
+            player1.hand = new Hand();
+            dealer = new Dealer();
+            hitCount = 0;
+        }
+
+        private void btnSplit_Click(object sender, EventArgs e)
+        {
 
         }
 

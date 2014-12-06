@@ -10,9 +10,17 @@ namespace twentyone
     {
         public int score;
         public Hand hand;
+        public float funds;
+        public string username;
+        public string password;
+        public int playerID;
 
-        public Player()
+        public Player(string username, string password, float funds)
         {
+            this.username = username;
+            this.password = password;
+            this.funds = funds;
+
             hand = new Hand();
 
         }
@@ -42,5 +50,6 @@ namespace twentyone
         {
 
         }
+        
     }
 }

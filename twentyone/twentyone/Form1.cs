@@ -52,6 +52,16 @@ namespace twentyone
                         cmd.ExecuteNonQuery();
                         cmd.Clone();
                         cmd.Parameters.Clear();
+
+                        MessageBox.Show("Player created!");
+                        Form1.ActiveForm.Hide();
+
+                        Player player1 = new Player(tbUsername.Text, tbPassword.Text, 1000);
+
+                        Blackjack blackjack = new Blackjack(player1);
+                        blackjack.Activate();
+
+                        blackjack.Show();
                     }
                     catch (SqlException s)
                     {
@@ -63,12 +73,7 @@ namespace twentyone
             }
            
                                  
-            MessageBox.Show("Player created!");
-            Form1.ActiveForm.Hide();
-            Blackjack blackjack = new Blackjack();
-            blackjack.Activate();
-
-            blackjack.Show();
+           
         }
 
         private void tbPassword_TextChanged(object sender, EventArgs e)
@@ -100,7 +105,7 @@ namespace twentyone
                 {
                     cmd.Connection = conn;
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = @"SELECT Username FROM BlackJackPlayerTB WHERE Username = @Username AND Password = @Password";
+                    cmd.CommandText = @"SELECT PlayerID, Username, Password, Funds FROM BlackJackPlayerTB WHERE Username = @Username AND Password = @Password";
                     cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
                     cmd.Parameters.AddWithValue("@Password", tbPassword.Text);
 
@@ -119,10 +124,20 @@ namespace twentyone
                     {
                             if (reader.HasRows)
                             {
+                                reader.Read();
                                 //sign the player in
                                 MessageBox.Show("Player found!");
                                 Form1.ActiveForm.Hide();
-                                Blackjack blackjack = new Blackjack();
+                                string username = reader["Username"].ToString();
+                                string password = reader["Password"].ToString();
+                                string fundStr = reader["Funds"].ToString();
+                                float funds = float.Parse(fundStr);
+
+                                Player player1 = new Player(username, password, funds);
+                                player1.playerID = int.Parse(reader["PlayerID"].ToString());
+                               
+
+                                Blackjack blackjack = new Blackjack(player1);
                                 blackjack.Activate();
 
                                 blackjack.Show();
