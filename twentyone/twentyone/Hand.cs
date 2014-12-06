@@ -3,32 +3,35 @@ namespace twentyone
 	using System;
 	using System.Collections;
 
-	public class Hand
-	{
-        public const int HandSize = 5;
-        public PlayingCard[] cards = new PlayingCard[HandSize];
-        private int playingCardCount = 0;
+    public class Hand
+    {
 
-		public void AddCardToHand(PlayingCard cardDealt)
-		{
-            if (this.playingCardCount >= HandSize)
-            {
-                throw new ArgumentException("Too many cards");
-            }
-            this.cards[this.playingCardCount] = cardDealt;
+        public ArrayList cards;
+        private int playingCardCount;
+
+        public Hand()
+        {
+            cards = new ArrayList();
+            playingCardCount = 0;
+
+        }
+
+        public void AddCardToHand(PlayingCard cardDealt)
+        {
+            this.cards.Add(cardDealt);
             this.playingCardCount++;
-		}
+        }
 
-		public override string ToString()
-		{
-			string result = "";
-			foreach (PlayingCard card in this.cards)
-			{
-				result += card.ToString() + "\n";
-			}
+        public override string ToString()
+        {
+            string result = "";
+            foreach (PlayingCard card in this.cards)
+            {
+                result += card.ToString() + "\n";
+            }
 
-			return result;
-		}
+            return result;
+        }
 
-	}
+    }
 }

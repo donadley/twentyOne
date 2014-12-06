@@ -4,18 +4,16 @@ using System;
 
 namespace twentyone
 {
-	public class PlayingCard
-	{
+    public class PlayingCard
+    {
         private readonly Suit suit;
         private readonly Value value;
-    
 
-		public PlayingCard(Suit s, Value v)
-		{
-			this.suit = s;
-			this.value = v;
-            
-		}
+        public PlayingCard(Suit s, Value v)
+        {
+            this.suit = s;
+            this.value = v;
+        }
 
         public override string ToString()
         {
@@ -38,7 +36,8 @@ namespace twentyone
             Image cardImage = Image.FromFile(Application.StartupPath + "\\Cards\\" + string.Format("{0}{1}", this.CardValue(), this.CardSuit() + ".png"));
             return cardImage;
         }
-        public int getIntValue(Value value)
+
+        public int getIntValue()
         {
             switch (value)
             {

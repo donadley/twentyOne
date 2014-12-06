@@ -9,11 +9,30 @@ namespace twentyone
 {
     public class Dealer
     {
-        public Pack pack = new Pack();
-        public Hand hand = new Hand();
+        public int score;
+        public Pack pack;
+        public Hand hand;
+
+        public Dealer()
+        {
+            pack = new Pack();
+            hand = new Hand();
+        }
+        public int getScore()
+        {
+            score = 0;
+
+            for (int i = 0; i < hand.cards.Count; i++)
+            {
+                score += ((PlayingCard)hand.cards[i]).getIntValue();
+            }
+
+            return score;
+        }
 
         public void Stand()
         {
+
 
         }
         public void Hit(PlayingCard card)
@@ -21,12 +40,12 @@ namespace twentyone
             hand.AddCardToHand(card);
         }
         public PlayingCard DealCard()
-        {            
-            return pack.DealCardFromPack();            
+        {
+            return pack.DealCardFromPack();
         }
         public void Shuffle()
         {
             pack = new Pack();
-        }      
+        }
     }
 }

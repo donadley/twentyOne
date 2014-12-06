@@ -23,17 +23,6 @@ namespace twentyone
         {
             InitializeComponent();
 
-            
-
-
-            //daPlayerAdapter = new SqlDataAdapter("Select * From BlackJackPlayerTB", objConn);
-
-            //dsPlayerDataSet = new DataSet();
-
-
-            //daPlayerAdapter.FillSchema(dsPlayerDataSet, SchemaType.Source, "BlackJackPlayerTB");
-            //daPlayerAdapter.Fill(dsPlayerDataSet, "BlackJackPlayerTB");
-
         }
 
         public void Form1_Load(object sender, EventArgs e)

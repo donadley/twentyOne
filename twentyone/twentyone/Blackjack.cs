@@ -10,7 +10,7 @@ using System.IO;
 
 namespace twentyone
 {
-     
+
     public partial class Blackjack : Form
     {
         Dealer dealer;
@@ -27,37 +27,31 @@ namespace twentyone
 
         public void btnDeal_Click(object sender, EventArgs e)
         {
-            player1.Hit(dealer.DealCard());            
-            player1.Hit(dealer.DealCard());
+            Blackjack game = new Blackjack();
 
-            dealer.Hit(dealer.DealCard());
-            dealer.Hit(dealer.DealCard());
+            player1.hand.AddCardToHand(dealer.DealCard());
+            player1.hand.AddCardToHand(dealer.DealCard());
 
-            pnlplayerHand0.BackgroundImage = player1.hand.cards[0].getCardImage();
-            pnlplayerHand1.BackgroundImage = player1.hand.cards[1].getCardImage();
-            pnlDC0.BackgroundImage = dealer.hand.cards[1].getCardImage();
-            pnlDC1.BackgroundImage = dealer.hand.cards[1].getCardImage();
+            dealer.hand.AddCardToHand(dealer.DealCard());
+            dealer.hand.AddCardToHand(dealer.DealCard());
+
+            pnlplayerHand0.BackgroundImage = ((PlayingCard)player1.hand.cards[0]).getCardImage();
+            pnlplayerHand1.BackgroundImage = ((PlayingCard)player1.hand.cards[1]).getCardImage();
+            pnlDC0.BackgroundImage = Image.FromFile(Application.StartupPath + "\\Cards\\b1fv.png");
+
+            pnlDC1.BackgroundImage = ((PlayingCard)dealer.hand.cards[1]).getCardImage();
 
             btnDeal.Visible = false;
+
+            lblPlayerScore.Text = "" + player1.getScore();
+
         }
 
-        public int getScore(PlayingCard[] hand)
-        {
-            int score = 0;
-
-            for (int i = 0; i < hand.Length; i++)
-            {
-                score += hand[i].getIntValue(hand[i].CardValue());
-            }
-
-            return score;
-        }
-
-        public bool checkBlackJack(int score,double playerBet)
+        public bool checkBlackJack(int score, double playerBet)
         {
             if (score == 21)
             {
-                lblWinner.Text="Player BlackJack!";
+                lblWinner.Text = "Player BlackJack!";
                 //winnings += playerBet * 1.5;
                 return true;
             }
@@ -70,8 +64,8 @@ namespace twentyone
         {
             if (score == 21)
             {
-                lblWinner.Text=("Dealer BlackJack!");
-                
+                lblWinner.Text = ("Dealer BlackJack!");
+
                 return true;
             }
             else
@@ -80,19 +74,19 @@ namespace twentyone
             }
         }
 
-        public string isWinner(int playerHand, int dealerHand)
+        public string isWinner(Player player1, Dealer dealer)
         {
-            if (playerHand < dealerHand)
+            if (player1.getScore() < dealer.getScore() && dealer.getScore() < 22)
             {
                 return "Dealer Wins!";
             }
-            else if (playerHand > dealerHand)
+            else if (player1.getScore() > dealer.getScore() && player1.getScore() < 22)
             {
                 return "Player Wins!";
             }
             else
             {
-                return "Push!";
+                return "Player Wins!";
             }
         }
 
@@ -101,20 +95,80 @@ namespace twentyone
             if (hitCount == 0)
             {
                 player1.Hit(dealer.DealCard());
-                pnlPC2.BackgroundImage = player1.hand.cards[2].getCardImage();
+                pnlPC2.BackgroundImage = ((PlayingCard)player1.hand.cards[2]).getCardImage();
+                lblPlayerScore.Text = "" + player1.getScore();
+                if (player1.getScore() > 21)
+                {
+                    lblWinner.Text = "Busted! Dealer Wins!";
+                    endGame();
+                }
             }
             if (hitCount == 1)
             {
                 player1.Hit(dealer.DealCard());
-                panel3.BackgroundImage = player1.hand.cards[3].getCardImage();
+                panel3.BackgroundImage = ((PlayingCard)player1.hand.cards[3]).getCardImage();
+                lblPlayerScore.Text = "" + player1.getScore();
+                if (player1.getScore() > 21)
+                {
+                    //lblWinner.Text = "Busted! Dealer Wins!";
+                    endGame();
+                }
             }
             if (hitCount == 2)
             {
                 player1.Hit(dealer.DealCard());
-                panel5.BackgroundImage = player1.hand.cards[4].getCardImage();
+                panel5.BackgroundImage = ((PlayingCard)player1.hand.cards[4]).getCardImage();
+                lblPlayerScore.Text = "" + player1.getScore();
+                if (player1.getScore() > 21)
+                {
+                    //lblWinner.Text = "Busted! Dealer Wins!";
+                    endGame();
+                }
             }
-            hitCount++;                
+            hitCount++;
+
+
+
         }
-         
+        public bool dealerUnder17()
+        {
+            if (dealer.getScore() >= 17)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public void btnStand_Click(object sender, EventArgs e)
+        {
+            endGame();
+        }
+
+        public void endGame()
+        {
+            while (dealerUnder17())
+            {
+                dealer.Hit(dealer.DealCard());
+            }
+
+            //Show dealer's hidden card and score
+            pnlDC0.BackgroundImage = ((PlayingCard)dealer.hand.cards[0]).getCardImage();
+            lblDealerScore.Text = "" + dealer.getScore();
+
+            lblWinner.Text = isWinner(player1, dealer);
+
+            btnDeal.Visible = true;
+
+        }
+
+        private void pnlDC0_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+
     }
 }
