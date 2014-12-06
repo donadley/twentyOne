@@ -15,7 +15,7 @@ namespace twentyone
     {
         Dealer dealer;
         Player player1;
-        public int hitCount = 0;
+        public int hitCount;
         public Blackjack()
         {
             InitializeComponent();
@@ -23,6 +23,7 @@ namespace twentyone
             //Making a game with a dealer and player
             dealer = new Dealer();
             player1 = new Player();
+            hitCount = 0;
         }
 
         public void btnDeal_Click(object sender, EventArgs e)
@@ -92,43 +93,16 @@ namespace twentyone
 
         public void btnHit_Click(object sender, EventArgs e)
         {
-            if (hitCount == 0)
+            player1.Hit(dealer.DealCard());
+            pnlPC2.BackgroundImage = ((PlayingCard)player1.hand.cards[(hitCount+2)]).getCardImage();
+            lblPlayerScore.Text = "" + player1.getScore();
+            if (player1.getScore() > 21)
             {
-                player1.Hit(dealer.DealCard());
-                pnlPC2.BackgroundImage = ((PlayingCard)player1.hand.cards[2]).getCardImage();
-                lblPlayerScore.Text = "" + player1.getScore();
-                if (player1.getScore() > 21)
-                {
-                    lblWinner.Text = "Busted! Dealer Wins!";
-                    endGame();
-                }
+                lblWinner.Text = "Busted! Dealer Wins!";
+                endGame();
             }
-            if (hitCount == 1)
-            {
-                player1.Hit(dealer.DealCard());
-                panel3.BackgroundImage = ((PlayingCard)player1.hand.cards[3]).getCardImage();
-                lblPlayerScore.Text = "" + player1.getScore();
-                if (player1.getScore() > 21)
-                {
-                    //lblWinner.Text = "Busted! Dealer Wins!";
-                    endGame();
-                }
-            }
-            if (hitCount == 2)
-            {
-                player1.Hit(dealer.DealCard());
-                panel5.BackgroundImage = ((PlayingCard)player1.hand.cards[4]).getCardImage();
-                lblPlayerScore.Text = "" + player1.getScore();
-                if (player1.getScore() > 21)
-                {
-                    //lblWinner.Text = "Busted! Dealer Wins!";
-                    endGame();
-                }
-            }
+            
             hitCount++;
-
-
-
         }
         public bool dealerUnder17()
         {
@@ -161,11 +135,6 @@ namespace twentyone
             lblWinner.Text = isWinner(player1, dealer);
 
             btnDeal.Visible = true;
-
-        }
-
-        private void pnlDC0_Paint(object sender, PaintEventArgs e)
-        {
 
         }
 

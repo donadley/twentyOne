@@ -14,10 +14,10 @@ namespace twentyone
 {
     public partial class Form1 : Form
     {
-        SqlConnection objConn = new SqlConnection(@"Data Source=(LocalDB)\v11.0;AttachDbFilename="+Application.StartupPath+"\\BlackJackDB.mdf;Integrated Security=True");
+        string objConn = @"Data Source=(LocalDB)\v11.0;AttachDbFilename="+Application.StartupPath+"\\BlackJackDB.mdf;Integrated Security=True";
         //SqlConnection objConn = new SqlConnection(@"Data Source=CSCPROJECTS.lsus.local;Initial Catalog=BlackJack;Integrated Security=True");
 
-        SqlCommand cmd;
+        
 
         public Form1()
         {
@@ -34,24 +34,35 @@ namespace twentyone
 
         private void btnCreateUser_Click(object sender, EventArgs e)
         {
-            cmd = new SqlCommand();
-            cmd.Connection = objConn;
-            objConn.Open();
 
-            cmd.CommandText = "INSERT INTO BlackJackPlayerTB (Username, Password, Funds) VALUES (@Username, @Password, 1000)";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = objConn;
-            cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
-            cmd.Parameters.AddWithValue("@Password", tbPassword.Text);
-            
+            using (SqlConnection conn = new SqlConnection(objConn))
+            {
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = @"INSERT INTO BlackJackPlayerTB (Username, Password, Funds) VALUES (@Username, @Password, 1000)";
+                
+                    cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
+                    cmd.Parameters.AddWithValue("@Password", tbPassword.Text);
+
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        cmd.Clone();
+                        cmd.Parameters.Clear();
+                    }
+                    catch (SqlException s)
+                    {
+                        MessageBox.Show(s.Message.ToString(), "Did not create user");
+                    }
+
+                
+                }
+            }
            
-
-            cmd.ExecuteNonQuery();
-            cmd.Clone();
-            cmd.Parameters.Clear();
-            objConn.Close();
-
-
+                                 
             MessageBox.Show("Player created!");
             Form1.ActiveForm.Hide();
             Blackjack blackjack = new Blackjack();
@@ -83,40 +94,49 @@ namespace twentyone
         private void btnLogin_Click(object sender, EventArgs e)
         {
 
-            cmd = new SqlCommand();
-            cmd.Connection = objConn;
-            objConn.Open();
-
-            cmd.CommandText = "SELECT Username FROM BlackJackPlayerTB WHERE Username = @Username AND Password = @Password";
-            cmd.CommandType = CommandType.Text;
-            cmd.Connection = objConn;
-            cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
-            cmd.Parameters.AddWithValue("@Password", tbPassword.Text);
-
-            cmd.ExecuteNonQuery();
-
-            SqlDataReader reader = cmd.ExecuteReader();
-
-            if (reader.HasRows)
+            using (SqlConnection conn = new SqlConnection(objConn))
             {
-                //sign the player in
-                MessageBox.Show("Player found!");
-                Form1.ActiveForm.Hide();
-                Blackjack blackjack = new Blackjack();
-                blackjack.Activate();
+                using (SqlCommand cmd = new SqlCommand())
+                {
+                    cmd.Connection = conn;
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = @"SELECT Username FROM BlackJackPlayerTB WHERE Username = @Username AND Password = @Password";
+                    cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
+                    cmd.Parameters.AddWithValue("@Password", tbPassword.Text);
 
-                blackjack.Show();
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (SqlException s)
+                    {
+                        MessageBox.Show(s.Message.ToString(), "Error Message");
+                    }
+
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                            if (reader.HasRows)
+                            {
+                                //sign the player in
+                                MessageBox.Show("Player found!");
+                                Form1.ActiveForm.Hide();
+                                Blackjack blackjack = new Blackjack();
+                                blackjack.Activate();
+
+                                blackjack.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show("User does not exist!");
+                            }
+
+                            cmd.Clone();
+                            cmd.Parameters.Clear();                       
+                    }                   
+                }
             }
-            else
-            {
-                MessageBox.Show("User does not exist!");  
-            }
-
-            cmd.Clone();
-            cmd.Parameters.Clear();
-            objConn.Close();
-
-
 
         }
 
