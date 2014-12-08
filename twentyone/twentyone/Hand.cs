@@ -8,11 +8,13 @@ namespace twentyone
 
         public ArrayList cards;
         private int playingCardCount;
+        public bool ifAceExist;
 
         public Hand()
         {
             cards = new ArrayList();
             playingCardCount = 0;
+            ifAceExist = false;
 
         }
 
@@ -20,6 +22,10 @@ namespace twentyone
         {
             this.cards.Add(cardDealt);
             this.playingCardCount++;
+            if (cardDealt.CardValue() == Value.Ace)
+            {
+                ifAceExist = true;
+            }
         }
 
         public override string ToString()

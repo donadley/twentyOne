@@ -56,18 +56,16 @@
             // 
             // pnlPC2
             // 
-            this.pnlPC2.Location = new System.Drawing.Point(433, 390);
-            this.pnlPC2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlPC2.Location = new System.Drawing.Point(325, 317);
             this.pnlPC2.Name = "pnlPC2";
-            this.pnlPC2.Size = new System.Drawing.Size(96, 118);
+            this.pnlPC2.Size = new System.Drawing.Size(72, 96);
             this.pnlPC2.TabIndex = 5;
             // 
             // btnDeal
             // 
-            this.btnDeal.Location = new System.Drawing.Point(88, 609);
-            this.btnDeal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDeal.Location = new System.Drawing.Point(66, 495);
             this.btnDeal.Name = "btnDeal";
-            this.btnDeal.Size = new System.Drawing.Size(100, 28);
+            this.btnDeal.Size = new System.Drawing.Size(75, 23);
             this.btnDeal.TabIndex = 2;
             this.btnDeal.Text = "Deal";
             this.btnDeal.UseVisualStyleBackColor = true;
@@ -76,90 +74,80 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 564);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(25, 458);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(45, 17);
+            this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bet $:";
             // 
             // pnlDC1
             // 
-            this.pnlDC1.Location = new System.Drawing.Point(329, 69);
-            this.pnlDC1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDC1.Location = new System.Drawing.Point(247, 56);
             this.pnlDC1.Name = "pnlDC1";
-            this.pnlDC1.Size = new System.Drawing.Size(96, 118);
+            this.pnlDC1.Size = new System.Drawing.Size(72, 96);
             this.pnlDC1.TabIndex = 4;
             // 
             // pnlplayerHand1
             // 
-            this.pnlplayerHand1.Location = new System.Drawing.Point(329, 390);
-            this.pnlplayerHand1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlplayerHand1.Location = new System.Drawing.Point(247, 317);
             this.pnlplayerHand1.Name = "pnlplayerHand1";
-            this.pnlplayerHand1.Size = new System.Drawing.Size(96, 118);
+            this.pnlplayerHand1.Size = new System.Drawing.Size(72, 96);
             this.pnlplayerHand1.TabIndex = 4;
             // 
             // pnlplayerHand0
             // 
-            this.pnlplayerHand0.Location = new System.Drawing.Point(225, 390);
-            this.pnlplayerHand0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlplayerHand0.Location = new System.Drawing.Point(169, 317);
             this.pnlplayerHand0.Name = "pnlplayerHand0";
-            this.pnlplayerHand0.Size = new System.Drawing.Size(96, 118);
+            this.pnlplayerHand0.Size = new System.Drawing.Size(72, 96);
             this.pnlplayerHand0.TabIndex = 3;
             // 
             // pnlDC0
             // 
-            this.pnlDC0.Location = new System.Drawing.Point(225, 69);
-            this.pnlDC0.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pnlDC0.Location = new System.Drawing.Point(169, 56);
             this.pnlDC0.Name = "pnlDC0";
-            this.pnlDC0.Size = new System.Drawing.Size(96, 118);
+            this.pnlDC0.Size = new System.Drawing.Size(72, 96);
             this.pnlDC0.TabIndex = 4;
             // 
             // lblDealer
             // 
             this.lblDealer.AutoSize = true;
-            this.lblDealer.Location = new System.Drawing.Point(33, 69);
-            this.lblDealer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDealer.Location = new System.Drawing.Point(25, 56);
             this.lblDealer.Name = "lblDealer";
-            this.lblDealer.Size = new System.Drawing.Size(105, 17);
+            this.lblDealer.Size = new System.Drawing.Size(79, 13);
             this.lblDealer.TabIndex = 5;
             this.lblDealer.Text = "Dealer\'s Score:";
             // 
             // lblPlayer
             // 
             this.lblPlayer.AutoSize = true;
-            this.lblPlayer.Location = new System.Drawing.Point(33, 390);
-            this.lblPlayer.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPlayer.Location = new System.Drawing.Point(25, 317);
             this.lblPlayer.Name = "lblPlayer";
-            this.lblPlayer.Size = new System.Drawing.Size(103, 17);
+            this.lblPlayer.Size = new System.Drawing.Size(77, 13);
             this.lblPlayer.TabIndex = 6;
             this.lblPlayer.Text = "Player\'s Score:";
             // 
             // lblDealerScore
             // 
             this.lblDealerScore.AutoSize = true;
-            this.lblDealerScore.Location = new System.Drawing.Point(147, 69);
-            this.lblDealerScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDealerScore.Location = new System.Drawing.Point(110, 56);
             this.lblDealerScore.Name = "lblDealerScore";
-            this.lblDealerScore.Size = new System.Drawing.Size(0, 17);
+            this.lblDealerScore.Size = new System.Drawing.Size(0, 13);
             this.lblDealerScore.TabIndex = 7;
             // 
             // lblPlayerScore
             // 
             this.lblPlayerScore.AutoSize = true;
-            this.lblPlayerScore.Location = new System.Drawing.Point(144, 390);
-            this.lblPlayerScore.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblPlayerScore.Location = new System.Drawing.Point(108, 317);
             this.lblPlayerScore.Name = "lblPlayerScore";
-            this.lblPlayerScore.Size = new System.Drawing.Size(0, 17);
+            this.lblPlayerScore.Size = new System.Drawing.Size(0, 13);
             this.lblPlayerScore.TabIndex = 8;
             // 
             // lblWinner
             // 
             this.lblWinner.AutoSize = true;
-            this.lblWinner.Location = new System.Drawing.Point(453, 283);
-            this.lblWinner.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblWinner.Location = new System.Drawing.Point(340, 230);
             this.lblWinner.Name = "lblWinner";
-            this.lblWinner.Size = new System.Drawing.Size(0, 17);
+            this.lblWinner.Size = new System.Drawing.Size(0, 13);
             this.lblWinner.TabIndex = 9;
             // 
             // comboBox1
@@ -174,58 +162,51 @@
             "25",
             "10",
             "5"});
-            this.comboBox1.Location = new System.Drawing.Point(88, 560);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBox1.Location = new System.Drawing.Point(66, 455);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(160, 24);
+            this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 10;
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(433, 69);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(325, 56);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(96, 118);
+            this.panel1.Size = new System.Drawing.Size(72, 96);
             this.panel1.TabIndex = 5;
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(537, 69);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(403, 56);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(96, 118);
+            this.panel2.Size = new System.Drawing.Size(72, 96);
             this.panel2.TabIndex = 5;
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(537, 390);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(403, 317);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(96, 118);
+            this.panel3.Size = new System.Drawing.Size(72, 96);
             this.panel3.TabIndex = 5;
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(641, 69);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Location = new System.Drawing.Point(481, 56);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(96, 118);
+            this.panel4.Size = new System.Drawing.Size(72, 96);
             this.panel4.TabIndex = 5;
             // 
             // panel5
             // 
-            this.panel5.Location = new System.Drawing.Point(641, 390);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Location = new System.Drawing.Point(481, 317);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(96, 118);
+            this.panel5.Size = new System.Drawing.Size(72, 96);
             this.panel5.TabIndex = 5;
             // 
             // btnHit
             // 
-            this.btnHit.Location = new System.Drawing.Point(225, 609);
-            this.btnHit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnHit.Location = new System.Drawing.Point(169, 495);
             this.btnHit.Name = "btnHit";
-            this.btnHit.Size = new System.Drawing.Size(100, 28);
+            this.btnHit.Size = new System.Drawing.Size(75, 23);
             this.btnHit.TabIndex = 11;
             this.btnHit.Text = "Hit";
             this.btnHit.UseVisualStyleBackColor = true;
@@ -233,20 +214,19 @@
             // 
             // btnDouble
             // 
-            this.btnDouble.Location = new System.Drawing.Point(491, 609);
-            this.btnDouble.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDouble.Location = new System.Drawing.Point(368, 495);
             this.btnDouble.Name = "btnDouble";
-            this.btnDouble.Size = new System.Drawing.Size(100, 28);
+            this.btnDouble.Size = new System.Drawing.Size(75, 23);
             this.btnDouble.TabIndex = 13;
             this.btnDouble.Text = "Double";
             this.btnDouble.UseVisualStyleBackColor = true;
+            this.btnDouble.Click += new System.EventHandler(this.btnDouble_Click);
             // 
             // btnSplit
             // 
-            this.btnSplit.Location = new System.Drawing.Point(353, 609);
-            this.btnSplit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSplit.Location = new System.Drawing.Point(265, 495);
             this.btnSplit.Name = "btnSplit";
-            this.btnSplit.Size = new System.Drawing.Size(100, 28);
+            this.btnSplit.Size = new System.Drawing.Size(75, 23);
             this.btnSplit.TabIndex = 12;
             this.btnSplit.Text = "Split";
             this.btnSplit.UseVisualStyleBackColor = true;
@@ -254,10 +234,9 @@
             // 
             // btnStand
             // 
-            this.btnStand.Location = new System.Drawing.Point(611, 609);
-            this.btnStand.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnStand.Location = new System.Drawing.Point(458, 495);
             this.btnStand.Name = "btnStand";
-            this.btnStand.Size = new System.Drawing.Size(100, 28);
+            this.btnStand.Size = new System.Drawing.Size(75, 23);
             this.btnStand.TabIndex = 14;
             this.btnStand.Text = "Stand";
             this.btnStand.UseVisualStyleBackColor = true;
@@ -265,10 +244,9 @@
             // 
             // btnSurrender
             // 
-            this.btnSurrender.Location = new System.Drawing.Point(749, 609);
-            this.btnSurrender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSurrender.Location = new System.Drawing.Point(562, 495);
             this.btnSurrender.Name = "btnSurrender";
-            this.btnSurrender.Size = new System.Drawing.Size(100, 28);
+            this.btnSurrender.Size = new System.Drawing.Size(75, 23);
             this.btnSurrender.TabIndex = 15;
             this.btnSurrender.Text = "Surrender";
             this.btnSurrender.UseVisualStyleBackColor = true;
@@ -276,18 +254,18 @@
             // lblMoney
             // 
             this.lblMoney.AutoSize = true;
-            this.lblMoney.Location = new System.Drawing.Point(325, 564);
-            this.lblMoney.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMoney.Location = new System.Drawing.Point(244, 458);
             this.lblMoney.Name = "lblMoney";
-            this.lblMoney.Size = new System.Drawing.Size(88, 17);
+            this.lblMoney.Size = new System.Drawing.Size(67, 13);
             this.lblMoney.TabIndex = 16;
             this.lblMoney.Text = "Your Money:";
             // 
             // Blackjack
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1239, 677);
+            this.BackColor = System.Drawing.Color.Green;
+            this.ClientSize = new System.Drawing.Size(929, 550);
             this.Controls.Add(this.lblMoney);
             this.Controls.Add(this.btnSurrender);
             this.Controls.Add(this.btnStand);
@@ -312,7 +290,6 @@
             this.Controls.Add(this.lblDealer);
             this.Controls.Add(this.pnlplayerHand0);
             this.Controls.Add(this.pnlDC0);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Blackjack";
             this.Text = "BlackJack";
             this.ResumeLayout(false);

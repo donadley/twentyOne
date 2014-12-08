@@ -47,5 +47,29 @@ namespace twentyone
         {
             pack = new Pack();
         }
+
+        public bool hasBusted(int score)
+        {
+            if (score > 21)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool hasBlackjack(int score)
+        {
+            if (score == 21)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

@@ -43,9 +43,10 @@
             // 
             // btnNewUser
             // 
-            this.btnNewUser.Location = new System.Drawing.Point(306, 276);
+            this.btnNewUser.Location = new System.Drawing.Point(230, 224);
+            this.btnNewUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnNewUser.Name = "btnNewUser";
-            this.btnNewUser.Size = new System.Drawing.Size(154, 84);
+            this.btnNewUser.Size = new System.Drawing.Size(116, 68);
             this.btnNewUser.TabIndex = 0;
             this.btnNewUser.Text = "New User";
             this.btnNewUser.UseVisualStyleBackColor = true;
@@ -53,9 +54,10 @@
             // 
             // btnExistingUser
             // 
-            this.btnExistingUser.Location = new System.Drawing.Point(549, 276);
+            this.btnExistingUser.Location = new System.Drawing.Point(412, 224);
+            this.btnExistingUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnExistingUser.Name = "btnExistingUser";
-            this.btnExistingUser.Size = new System.Drawing.Size(154, 84);
+            this.btnExistingUser.Size = new System.Drawing.Size(116, 68);
             this.btnExistingUser.TabIndex = 1;
             this.btnExistingUser.Text = "Existing User";
             this.btnExistingUser.UseVisualStyleBackColor = true;
@@ -70,18 +72,20 @@
             this.panelUserLogin.Controls.Add(this.tbUsername);
             this.panelUserLogin.Controls.Add(this.lblPassword);
             this.panelUserLogin.Controls.Add(this.lblUsername);
-            this.panelUserLogin.Location = new System.Drawing.Point(285, 142);
+            this.panelUserLogin.Location = new System.Drawing.Point(214, 115);
+            this.panelUserLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelUserLogin.Name = "panelUserLogin";
-            this.panelUserLogin.Size = new System.Drawing.Size(444, 393);
+            this.panelUserLogin.Size = new System.Drawing.Size(333, 319);
             this.panelUserLogin.TabIndex = 2;
             this.panelUserLogin.Visible = false;
             this.panelUserLogin.Paint += new System.Windows.Forms.PaintEventHandler(this.panelUserLogin_Paint);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(152, 293);
+            this.btnCancel.Location = new System.Drawing.Point(114, 238);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(186, 23);
+            this.btnCancel.Size = new System.Drawing.Size(140, 19);
             this.btnCancel.TabIndex = 7;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
@@ -89,9 +93,10 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.Location = new System.Drawing.Point(152, 245);
+            this.btnLogin.Location = new System.Drawing.Point(114, 199);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(186, 23);
+            this.btnLogin.Size = new System.Drawing.Size(140, 19);
             this.btnLogin.TabIndex = 6;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
@@ -99,9 +104,10 @@
             // 
             // btnCreateUser
             // 
-            this.btnCreateUser.Location = new System.Drawing.Point(152, 245);
+            this.btnCreateUser.Location = new System.Drawing.Point(114, 199);
+            this.btnCreateUser.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnCreateUser.Name = "btnCreateUser";
-            this.btnCreateUser.Size = new System.Drawing.Size(186, 23);
+            this.btnCreateUser.Size = new System.Drawing.Size(140, 19);
             this.btnCreateUser.TabIndex = 5;
             this.btnCreateUser.Text = "Create User";
             this.btnCreateUser.UseVisualStyleBackColor = true;
@@ -109,26 +115,30 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(160, 155);
+            this.tbPassword.Location = new System.Drawing.Point(120, 126);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(178, 22);
+            this.tbPassword.PasswordChar = '*';
+            this.tbPassword.Size = new System.Drawing.Size(134, 20);
             this.tbPassword.TabIndex = 4;
             this.tbPassword.TextChanged += new System.EventHandler(this.tbPassword_TextChanged);
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(160, 107);
+            this.tbUsername.Location = new System.Drawing.Point(120, 87);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(178, 22);
+            this.tbUsername.Size = new System.Drawing.Size(134, 20);
             this.tbUsername.TabIndex = 3;
             this.tbUsername.TextChanged += new System.EventHandler(this.tbUsername_TextChanged);
             // 
             // lblPassword
             // 
             this.lblPassword.AutoSize = true;
-            this.lblPassword.Location = new System.Drawing.Point(69, 155);
+            this.lblPassword.Location = new System.Drawing.Point(52, 126);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(73, 17);
+            this.lblPassword.Size = new System.Drawing.Size(56, 13);
             this.lblPassword.TabIndex = 1;
             this.lblPassword.Text = "Password:";
             this.lblPassword.Click += new System.EventHandler(this.lblPassword_Click);
@@ -136,21 +146,23 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(67, 107);
+            this.lblUsername.Location = new System.Drawing.Point(50, 87);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(77, 17);
+            this.lblUsername.Size = new System.Drawing.Size(58, 13);
             this.lblUsername.TabIndex = 0;
             this.lblUsername.Text = "Username:";
             this.lblUsername.Click += new System.EventHandler(this.lblUsername_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 628);
+            this.ClientSize = new System.Drawing.Size(754, 510);
             this.Controls.Add(this.panelUserLogin);
             this.Controls.Add(this.btnNewUser);
             this.Controls.Add(this.btnExistingUser);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "Start Screen";
             this.panelUserLogin.ResumeLayout(false);

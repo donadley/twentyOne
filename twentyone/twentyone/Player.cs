@@ -14,6 +14,7 @@ namespace twentyone
         public string username;
         public string password;
         public int playerID;
+        public float bet;
 
         public Player(string username, string password, float funds)
         {
@@ -32,6 +33,11 @@ namespace twentyone
             for (int i = 0; i < hand.cards.Count; i++)
             {
                 score += ((PlayingCard)hand.cards[i]).getIntValue();
+                if (score > 21 && hand.ifAceExist)
+                {
+                    score -= 10;
+                }
+
             }
 
             return score;
@@ -49,6 +55,30 @@ namespace twentyone
         public void Split()
         {
 
+        }
+
+        public bool hasBusted(int score)
+        {
+            if (score > 21)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public bool hasBlackjack(int score)
+        {
+            if (score == 21)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         
     }

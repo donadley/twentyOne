@@ -14,8 +14,8 @@ namespace twentyone
 {
     public partial class Form1 : Form
     {
-        string objConn = @"Data Source=(LocalDB)\v11.0;AttachDbFilename="+Application.StartupPath+"\\BlackJackDB.mdf;Integrated Security=True";
-        //SqlConnection objConn = new SqlConnection(@"Data Source=CSCPROJECTS.lsus.local;Initial Catalog=BlackJack;Integrated Security=True");
+        //string objConn = @"Data Source=(LocalDB)\v11.0;AttachDbFilename="+Application.StartupPath+"\\BlackJackDB.mdf;Integrated Security=True";
+        string objConn = @"Data Source=CSCPROJECTS.lsus.local;Initial Catalog=BlackJack;Integrated Security=True";
 
         
 
