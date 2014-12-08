@@ -12,9 +12,16 @@ namespace twentyone
         public int cardsPerPack = 52;
         private PlayingCard[,] cardPack;
         private Random randomCardSelector = new Random();
+        public bool CloseToEmpty;
+        public int cutCardforshuffle;
 
 		public Pack()
 		{
+            CloseToEmpty = false;
+
+            Random randomCard = new Random();
+            cutCardforshuffle = randomCard.Next(5, 15);
+
             this.cardPack = new PlayingCard[NumSuits, CardsPerSuit];
 
             for (Suit suit = Suit.Club; suit <= Suit.Spade; suit++)
@@ -43,6 +50,11 @@ namespace twentyone
             PlayingCard card = this.cardPack[(int)suit, (int)value];
             this.cardPack[(int)suit, (int)value] = null;
             cardsPerPack--;
+
+            if (cardsPerPack == cutCardforshuffle)
+            {
+                CloseToEmpty = true;
+            }
             return card;
         }
 

@@ -169,6 +169,11 @@ namespace twentyone
 
         public void endGame()
         {
+            //Shuffle when deck almost empty
+            if (dealer.pack.CloseToEmpty)
+            {
+                dealer.pack = new Pack();
+            }
 
             lblMoney.Text = "Your Money: $" + player1.funds.ToString();
             DialogResult playAgain;
@@ -235,7 +240,7 @@ namespace twentyone
                 player1.hand.cards.Clear();
                 dealer.hand.cards.Clear();
                 player1.hand = new Hand();
-                dealer = new Dealer();
+                //dealer = new Dealer();
                 hitCount = 0;
                 lblMoney.Text = "Your Money: $" + player1.funds.ToString();
                 surrender = false;
