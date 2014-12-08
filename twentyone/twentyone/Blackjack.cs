@@ -34,68 +34,77 @@ namespace twentyone
 
         public void btnDeal_Click(object sender, EventArgs e)
         {
-            if (count < 1)
+            if (comboBox1.Text == "")
             {
-                player1.bet = float.Parse(comboBox1.Text);
+                MessageBox.Show("Please Enter A Bet");
             }
-
-            if (player1.funds == 0)
-            {
-                DialogResult borrowMoney;
-
-                borrowMoney = MessageBox.Show("You're broke. Do you want to loan $1000 from the bank?", "", MessageBoxButtons.YesNo);
-
-                if (borrowMoney == DialogResult.Yes)
-                {
-                    player1.funds = 1000;
-                    fundsExceeded();
-                }
-                else
-                {
-                    Application.Exit();
-                }
-
-            }
-            else if (Double.Parse(comboBox1.Text) > player1.funds)
-            {
-                MessageBox.Show("Bet exceeds player funds. Please reduce your bet.");
-                fundsExceeded();
-            }
-
             else
             {
 
-                player1.bet = float.Parse(comboBox1.Text);
-                player1.hand.AddCardToHand(dealer.DealCard());
-                player1.hand.AddCardToHand(dealer.DealCard());
 
-                dealer.hand.AddCardToHand(dealer.DealCard());
-                dealer.hand.AddCardToHand(dealer.DealCard());
-
-                lblMoney.Text = "Your Money: $" + player1.funds.ToString();
-
-                pnlplayerHand0.BackgroundImage = ((PlayingCard)player1.hand.cards[0]).getCardImage();
-                pnlplayerHand1.BackgroundImage = ((PlayingCard)player1.hand.cards[1]).getCardImage();
-                pnlDC0.BackgroundImage = Image.FromFile(Application.StartupPath + "\\Cards\\b1fv.png");
-                pnlDC1.BackgroundImage = ((PlayingCard)dealer.hand.cards[1]).getCardImage();
-
-                if (player1.hasBlackjack(player1.getScore()))
+                if (count < 1)
                 {
-                    endGame();
-                }
-                if (dealer.hasBlackjack(dealer.getScore()))
-                {
-                    pnlDC0.BackgroundImage = ((PlayingCard)dealer.hand.cards[0]).getCardImage();
-                    endGame();
+                    player1.bet = float.Parse(comboBox1.Text);
                 }
 
-                btnDeal.Visible = false;
-                btnDouble.Visible = true;
-                btnHit.Visible = true;
-                btnSplit.Visible = true;
-                btnStand.Visible = true;
-                btnSurrender.Visible = true;
-                lblPlayerScore.Text = "" + player1.getScore();
+                if (player1.funds == 0)
+                {
+                    DialogResult borrowMoney;
+
+                    borrowMoney = MessageBox.Show("You're broke. Do you want to loan $1000 from the bank?", "", MessageBoxButtons.YesNo);
+
+                    if (borrowMoney == DialogResult.Yes)
+                    {
+                        player1.funds = 1000;
+                        fundsExceeded();
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+
+                }
+                else if (Double.Parse(comboBox1.Text) > player1.funds)
+                {
+                    MessageBox.Show("Bet exceeds player funds. Please reduce your bet.");
+                    fundsExceeded();
+                }
+
+                else
+                {
+
+                    player1.bet = float.Parse(comboBox1.Text);
+                    player1.hand.AddCardToHand(dealer.DealCard());
+                    player1.hand.AddCardToHand(dealer.DealCard());
+
+                    dealer.hand.AddCardToHand(dealer.DealCard());
+                    dealer.hand.AddCardToHand(dealer.DealCard());
+
+                    lblMoney.Text = "Your Money: $" + player1.funds.ToString();
+
+                    pnlplayerHand0.BackgroundImage = ((PlayingCard)player1.hand.cards[0]).getCardImage();
+                    pnlplayerHand1.BackgroundImage = ((PlayingCard)player1.hand.cards[1]).getCardImage();
+                    pnlDC0.BackgroundImage = Image.FromFile(Application.StartupPath + "\\Cards\\b1fv.png");
+                    pnlDC1.BackgroundImage = ((PlayingCard)dealer.hand.cards[1]).getCardImage();
+
+                    if (player1.hasBlackjack(player1.getScore()))
+                    {
+                        endGame();
+                    }
+                    if (dealer.hasBlackjack(dealer.getScore()))
+                    {
+                        pnlDC0.BackgroundImage = ((PlayingCard)dealer.hand.cards[0]).getCardImage();
+                        endGame();
+                    }
+
+                    btnDeal.Visible = false;
+                    btnDouble.Visible = true;
+                    btnHit.Visible = true;
+                    btnSplit.Visible = true;
+                    btnStand.Visible = true;
+                    btnSurrender.Visible = true;
+                    lblPlayerScore.Text = "" + player1.getScore();
+                }
             }
         }
 
@@ -308,20 +317,38 @@ namespace twentyone
 
         private void btnSplit_Click(object sender, EventArgs e)
         {
-            //    if (((PlayingCard)player1.hand.cards[0]).CardValue() == ((PlayingCard)player1.hand.cards[1]).CardValue())
-            //    {
+            if (((PlayingCard)player1.hand.cards[0]).CardValue() == ((PlayingCard)player1.hand.cards[1]).CardValue())
+            {
 
-            //        player1.hand.AddCardToHand(dealer.DealCard());
-            //        player1.hand.AddCardToHand(dealer.DealCard());
-            //        panel3.BackgroundImage = ((PlayingCard)player1.hand.cards[1]).getCardImage();
-            //        pnlplayerHand1.BackgroundImage = ((PlayingCard)player1.hand.cards[2]).getCardImage();
-            //        panel5.BackgroundImage = ((PlayingCard)player1.hand.cards[3]).getCardImage();
+                player1.hand.AddCardToHand(dealer.DealCard());
+                player1.hand.AddCardToHand(dealer.DealCard());
+                panel3.BackgroundImage = ((PlayingCard)player1.hand.cards[1]).getCardImage();
+                pnlplayerHand1.BackgroundImage = ((PlayingCard)player1.hand.cards[2]).getCardImage();
+                panel5.BackgroundImage = ((PlayingCard)player1.hand.cards[3]).getCardImage();
+                int hand1Score = ((PlayingCard)player1.hand.cards[0]).getIntValue() + ((PlayingCard)player1.hand.cards[2]).getIntValue();
+                int hand2Score = ((PlayingCard)player1.hand.cards[1]).getIntValue() + ((PlayingCard)player1.hand.cards[3]).getIntValue();
 
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("You may only split a pair with the same value.");
-            //    }
+                if (hand1Score > dealer.getScore())
+                {
+                    player1.funds = player1.funds + player1.bet;
+                }
+                if (hand2Score > dealer.getScore())
+                {
+                    player1.funds = player1.funds + player1.bet;
+                }
+                else
+                {
+                    player1.funds = player1.funds - (player1.funds * 2);
+                    endGame();
+                }
+
+                endGame();
+            }
+            else
+            {
+                MessageBox.Show("You may only split a pair with the same value.");
+            }
+
 
         }
         private void fundsExceeded()
@@ -352,6 +379,5 @@ namespace twentyone
             surrender = false;
 
         }
-
     }
 }

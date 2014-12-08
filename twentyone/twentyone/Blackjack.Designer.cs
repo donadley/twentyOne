@@ -152,6 +152,8 @@
             // 
             // comboBox1
             // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "1000",
@@ -166,6 +168,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 10;
+
             // 
             // panel1
             // 
@@ -210,6 +213,7 @@
             this.btnHit.TabIndex = 11;
             this.btnHit.Text = "Hit";
             this.btnHit.UseVisualStyleBackColor = true;
+            this.btnHit.Visible = false;
             this.btnHit.Click += new System.EventHandler(this.btnHit_Click);
             // 
             // btnDouble
@@ -220,6 +224,7 @@
             this.btnDouble.TabIndex = 13;
             this.btnDouble.Text = "Double";
             this.btnDouble.UseVisualStyleBackColor = true;
+            this.btnDouble.Visible = false;
             this.btnDouble.Click += new System.EventHandler(this.btnDouble_Click);
             // 
             // btnSplit
@@ -230,6 +235,7 @@
             this.btnSplit.TabIndex = 12;
             this.btnSplit.Text = "Split";
             this.btnSplit.UseVisualStyleBackColor = true;
+            this.btnSplit.Visible = false;
             this.btnSplit.Click += new System.EventHandler(this.btnSplit_Click);
             // 
             // btnStand
@@ -240,6 +246,7 @@
             this.btnStand.TabIndex = 14;
             this.btnStand.Text = "Stand";
             this.btnStand.UseVisualStyleBackColor = true;
+            this.btnStand.Visible = false;
             this.btnStand.Click += new System.EventHandler(this.btnStand_Click);
             // 
             // btnSurrender
@@ -250,6 +257,7 @@
             this.btnSurrender.TabIndex = 15;
             this.btnSurrender.Text = "Surrender";
             this.btnSurrender.UseVisualStyleBackColor = true;
+            this.btnSurrender.Visible = false;
             // 
             // lblMoney
             // 
