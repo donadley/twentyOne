@@ -174,7 +174,7 @@ namespace twentyone
             btnDouble.Visible = false;
             btnSurrender.Visible = false;
 
-            if (playerHitCount == 0)
+            if (hitCount == 0)
             {
                 player1.Hit(dealer.DealCard());
                 pnlPC2.BackgroundImage = ((PlayingCard)player1.hand.cards[2]).getCardImage();
@@ -184,7 +184,7 @@ namespace twentyone
                     endGame();
                 }
             }
-            if (playerHitCount == 1)
+            if (hitCount == 1)
             {
                 player1.Hit(dealer.DealCard());
                 panel3.BackgroundImage = ((PlayingCard)player1.hand.cards[3]).getCardImage();
@@ -194,7 +194,7 @@ namespace twentyone
                     endGame();
                 }
             }
-            if (playerHitCount == 2)
+            if (hitCount == 2)
             {
                 player1.Hit(dealer.DealCard());
                 panel5.BackgroundImage = ((PlayingCard)player1.hand.cards[4]).getCardImage();
