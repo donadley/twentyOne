@@ -63,12 +63,13 @@
             // 
             // btnDeal
             // 
+            this.btnDeal.BackColor = System.Drawing.Color.Silver;
             this.btnDeal.Location = new System.Drawing.Point(66, 495);
             this.btnDeal.Name = "btnDeal";
             this.btnDeal.Size = new System.Drawing.Size(75, 23);
             this.btnDeal.TabIndex = 2;
             this.btnDeal.Text = "Deal";
-            this.btnDeal.UseVisualStyleBackColor = true;
+            this.btnDeal.UseVisualStyleBackColor = false;
             this.btnDeal.Click += new System.EventHandler(this.btnDeal_Click);
             // 
             // label1
@@ -111,6 +112,7 @@
             // lblDealer
             // 
             this.lblDealer.AutoSize = true;
+            this.lblDealer.ForeColor = System.Drawing.Color.Black;
             this.lblDealer.Location = new System.Drawing.Point(25, 56);
             this.lblDealer.Name = "lblDealer";
             this.lblDealer.Size = new System.Drawing.Size(79, 13);
@@ -129,6 +131,7 @@
             // lblDealerScore
             // 
             this.lblDealerScore.AutoSize = true;
+            this.lblDealerScore.ForeColor = System.Drawing.Color.Black;
             this.lblDealerScore.Location = new System.Drawing.Point(110, 56);
             this.lblDealerScore.Name = "lblDealerScore";
             this.lblDealerScore.Size = new System.Drawing.Size(0, 13);
@@ -168,7 +171,6 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 10;
-
             // 
             // panel1
             // 
@@ -207,56 +209,61 @@
             // 
             // btnHit
             // 
+            this.btnHit.BackColor = System.Drawing.Color.Silver;
             this.btnHit.Location = new System.Drawing.Point(169, 495);
             this.btnHit.Name = "btnHit";
             this.btnHit.Size = new System.Drawing.Size(75, 23);
             this.btnHit.TabIndex = 11;
             this.btnHit.Text = "Hit";
-            this.btnHit.UseVisualStyleBackColor = true;
+            this.btnHit.UseVisualStyleBackColor = false;
             this.btnHit.Visible = false;
             this.btnHit.Click += new System.EventHandler(this.btnHit_Click);
             // 
             // btnDouble
             // 
+            this.btnDouble.BackColor = System.Drawing.Color.Silver;
             this.btnDouble.Location = new System.Drawing.Point(368, 495);
             this.btnDouble.Name = "btnDouble";
             this.btnDouble.Size = new System.Drawing.Size(75, 23);
             this.btnDouble.TabIndex = 13;
             this.btnDouble.Text = "Double";
-            this.btnDouble.UseVisualStyleBackColor = true;
+            this.btnDouble.UseVisualStyleBackColor = false;
             this.btnDouble.Visible = false;
             this.btnDouble.Click += new System.EventHandler(this.btnDouble_Click);
             // 
             // btnSplit
             // 
+            this.btnSplit.BackColor = System.Drawing.Color.Silver;
             this.btnSplit.Location = new System.Drawing.Point(265, 495);
             this.btnSplit.Name = "btnSplit";
             this.btnSplit.Size = new System.Drawing.Size(75, 23);
             this.btnSplit.TabIndex = 12;
             this.btnSplit.Text = "Split";
-            this.btnSplit.UseVisualStyleBackColor = true;
+            this.btnSplit.UseVisualStyleBackColor = false;
             this.btnSplit.Visible = false;
             this.btnSplit.Click += new System.EventHandler(this.btnSplit_Click);
             // 
             // btnStand
             // 
+            this.btnStand.BackColor = System.Drawing.Color.Silver;
             this.btnStand.Location = new System.Drawing.Point(458, 495);
             this.btnStand.Name = "btnStand";
             this.btnStand.Size = new System.Drawing.Size(75, 23);
             this.btnStand.TabIndex = 14;
             this.btnStand.Text = "Stand";
-            this.btnStand.UseVisualStyleBackColor = true;
+            this.btnStand.UseVisualStyleBackColor = false;
             this.btnStand.Visible = false;
             this.btnStand.Click += new System.EventHandler(this.btnStand_Click);
             // 
             // btnSurrender
             // 
+            this.btnSurrender.BackColor = System.Drawing.Color.Silver;
             this.btnSurrender.Location = new System.Drawing.Point(562, 495);
             this.btnSurrender.Name = "btnSurrender";
             this.btnSurrender.Size = new System.Drawing.Size(75, 23);
             this.btnSurrender.TabIndex = 15;
             this.btnSurrender.Text = "Surrender";
-            this.btnSurrender.UseVisualStyleBackColor = true;
+            this.btnSurrender.UseVisualStyleBackColor = false;
             this.btnSurrender.Visible = false;
             // 
             // lblMoney
@@ -272,7 +279,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Green;
+            this.BackColor = System.Drawing.Color.ForestGreen;
             this.ClientSize = new System.Drawing.Size(929, 550);
             this.Controls.Add(this.lblMoney);
             this.Controls.Add(this.btnSurrender);
@@ -300,6 +307,7 @@
             this.Controls.Add(this.pnlDC0);
             this.Name = "Blackjack";
             this.Text = "BlackJack";
+            this.Load += new System.EventHandler(this.Blackjack_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

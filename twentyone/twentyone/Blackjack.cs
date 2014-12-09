@@ -379,5 +379,10 @@ namespace twentyone
             surrender = false;
 
         }
+
+        private void Blackjack_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
