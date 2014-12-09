@@ -28,14 +28,25 @@ namespace twentyone
 
         public int getScore()
         {
+            int acecount = 0;
             score = 0;
+            int bust = 0;
 
             for (int i = 0; i < hand.cards.Count; i++)
             {
                 score += ((PlayingCard)hand.cards[i]).getIntValue();
-                if (score > 21 && hand.ifAceExist)
+
+                //counts the aces in hand
+                if (((PlayingCard)hand.cards[i]).CardValue() == Value.Ace)
                 {
-                    score -= 10;
+                    acecount++;
+                }
+
+
+                if (score > 21 && bust < 1)
+                {
+                    bust++;
+                    score -= (acecount * 10);  
                 }
 
             }

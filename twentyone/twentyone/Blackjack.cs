@@ -30,6 +30,7 @@ namespace twentyone
             dealer = new Dealer();
             this.player1 = player1;
             hitCount = 0;
+            lblMoney.Text = "Your Money: $" + player1.funds.ToString();
         }
 
         public void btnDeal_Click(object sender, EventArgs e)
@@ -41,13 +42,7 @@ namespace twentyone
             else
             {
 
-
-                if (count < 1)
-                {
-                    player1.bet = float.Parse(comboBox1.Text);
-                }
-
-                if (player1.funds == 0)
+                if (player1.funds < 5)
                 {
                     DialogResult borrowMoney;
 
@@ -55,7 +50,30 @@ namespace twentyone
 
                     if (borrowMoney == DialogResult.Yes)
                     {
-                        player1.funds = 1000;
+                        player1.funds += 1000;
+                        fundsExceeded();
+                    }
+                    else
+                    {
+                        Application.Exit();
+                    }
+
+                }
+
+                if (count < 1)
+                {
+                    player1.bet = float.Parse(comboBox1.Text);
+                }
+
+                if (player1.funds <= 0)
+                {
+                    DialogResult borrowMoney;
+
+                    borrowMoney = MessageBox.Show("You're broke. Do you want to loan $1000 from the bank?", "", MessageBoxButtons.YesNo);
+
+                    if (borrowMoney == DialogResult.Yes)
+                    {
+                        player1.funds += 1000;
                         fundsExceeded();
                     }
                     else
@@ -156,19 +174,38 @@ namespace twentyone
             btnDouble.Visible = false;
             btnSurrender.Visible = false;
 
-            player1.Hit(dealer.DealCard());
-            pnlPC2.BackgroundImage = ((PlayingCard)player1.hand.cards[(hitCount + 2)]).getCardImage();
-            lblPlayerScore.Text = "" + player1.getScore();
-            if (player1.getScore() > 21)
+            if (playerHitCount == 0)
             {
-                //lblWinner.Text = "Busted! Dealer Wins!";
-                endGame();
+                player1.Hit(dealer.DealCard());
+                pnlPC2.BackgroundImage = ((PlayingCard)player1.hand.cards[2]).getCardImage();
+                lblPlayerScore.Text = "" + player1.getScore();
+                if (player1.hasBusted(player1.getScore()))
+                {
+                    endGame();
+                }
+            }
+            if (playerHitCount == 1)
+            {
+                player1.Hit(dealer.DealCard());
+                panel3.BackgroundImage = ((PlayingCard)player1.hand.cards[3]).getCardImage();
+                lblPlayerScore.Text = "" + player1.getScore();
+                if (player1.hasBusted(player1.getScore()))
+                {
+                    endGame();
+                }
+            }
+            if (playerHitCount == 2)
+            {
+                player1.Hit(dealer.DealCard());
+                panel5.BackgroundImage = ((PlayingCard)player1.hand.cards[4]).getCardImage();
+                lblPlayerScore.Text = "" + player1.getScore();
+                if (player1.hasBusted(player1.getScore()))
+                {
+                    endGame();
+                }
             }
 
             hitCount++;
-
-            //playerHitCount++;
-
         }
 
         public void btnStand_Click(object sender, EventArgs e)

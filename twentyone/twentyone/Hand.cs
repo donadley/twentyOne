@@ -9,6 +9,7 @@ namespace twentyone
         public ArrayList cards;
         private int playingCardCount;
         public bool ifAceExist;
+        public int acecount = 0;
 
         public Hand()
         {
@@ -25,6 +26,7 @@ namespace twentyone
             if (cardDealt.CardValue() == Value.Ace)
             {
                 ifAceExist = true;
+                acecount++;
             }
         }
 
