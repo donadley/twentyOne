@@ -107,12 +107,12 @@ namespace twentyone
 
                     if (player1.hasBlackjack(player1.getScore()))
                     {
-                        endGame();
+                        fundsExceeded();
                     }
                     if (dealer.hasBlackjack(dealer.getScore()))
                     {
                         pnlDC0.BackgroundImage = ((PlayingCard)dealer.hand.cards[0]).getCardImage();
-                        endGame();
+                        fundsExceeded();
                     }
 
                     btnDeal.Visible = false;
@@ -421,5 +421,7 @@ namespace twentyone
         {
 
         }
+
+
     }
 }

@@ -265,6 +265,7 @@
             this.btnSurrender.Text = "Surrender";
             this.btnSurrender.UseVisualStyleBackColor = false;
             this.btnSurrender.Visible = false;
+            this.btnSurrender.Click += new System.EventHandler(this.btnSurrender_Click);
             // 
             // lblMoney
             // 
